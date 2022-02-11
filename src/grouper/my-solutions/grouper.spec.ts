@@ -1,23 +1,18 @@
-import { grouperAges } from './grouperAges'
+import { grouper } from './grouper'
 
 describe('Grouper', () => {
-  it('should return an object with the age and the times that have been repeated', function () {
-    const given = [{ name: 'Test', age: 10 }]
-
-    const actual = grouperAges(given)
-
-    expect(actual).toEqual({ 10: 1 })
-  })
-
-  it('should return an object with combination of the the ages  and the thimes that have been repeated', function () {
+  it('should return an object with combination of the ages as keys and the times that have been repeated as the value', function () {
     const given = [
       { name: 'Test', age: 10 },
       { name: 'Test2', age: 10 },
       { name: 'Juan', age: 2 }
     ]
 
-    const actual = grouperAges(given)
+    const actual = grouper(given)
 
-    expect(actual).toEqual({ 10: 2, 2: 1 })
+    expect(actual).toEqual({
+      10: ['Test', 'Test2'],
+      2: ['Juan']
+    })
   })
 })
