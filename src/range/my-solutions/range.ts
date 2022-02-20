@@ -1,5 +1,5 @@
 export function range(value: number) {
-  let result = []
+  const result = []
 
   for (let i = 0; i <= value; i++) {
     result.push(i)
